@@ -623,7 +623,7 @@
 #cmakedefine PACKAGE_VERSION
 
 /* default pidfile location */
-#cmakedefine PIDFILE
+#cmakedefine PIDFILE @PIDFILE@
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
@@ -642,10 +642,10 @@
 #cmakedefine RSRC_PACKAGE_VERSION
 
 /* Directory to chdir to */
-#cmakedefine RUN_DIR
+#cmakedefine RUN_DIR @RUN_DIR@
 
 /* Shared data */
-#cmakedefine SHARE_DIR
+#cmakedefine SHARE_DIR @SHARE_DIR@
 
 /* The size of `time_t', as computed by sizeof. */
 #cmakedefine SIZEOF_TIME_T @SIZEOF_TIME_T@
@@ -666,7 +666,7 @@
 #cmakedefine UB_ON_WINDOWS
 
 /* default username */
-#cmakedefine UB_USERNAME
+#cmakedefine UB_USERNAME @UB_USERNAME@
 
 /* use to enable lightweight alloc assertions, for debug use */
 #cmakedefine UNBOUND_ALLOC_LITE
