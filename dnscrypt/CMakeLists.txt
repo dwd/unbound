@@ -1,0 +1,1 @@
+add_library(dnscrypt dnscrypt.c dnscrypt.h)
