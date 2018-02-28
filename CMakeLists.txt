@@ -75,6 +75,7 @@ CHECK_SYMBOL_EXISTS(memmove string.h HAVE_MEMMOVE)
 CHECK_SYMBOL_EXISTS(snprintf stdio.h HAVE_SNPRINTF)
 CHECK_SYMBOL_EXISTS(strlcpy string.h HAVE_STRLCPY)
 CHECK_SYMBOL_EXISTS(strlcat string.h HAVE_STRLCAT)
+CHECK_SYMBOL_EXISTS(strsep string.h HAVE_STRSEP)
 
 SET(CMAKE_REQUIRED_LIBRARIES OpenSSL::Crypto pthread dl)
 CHECK_SYMBOL_EXISTS(EVP_MD_CTX_new openssl/evp.h HAVE_EVP_MD_CTX_NEW)
@@ -142,7 +143,6 @@ compat/memcmp.c compat/memmove.c compat/strlcat.c
 compat/strlcpy.c compat/getentropy_linux.c
 compat/explicit_bzero.c compat/arc4random.c compat/arc4random_uniform.c
 compat/arc4_lock.c compat/sha512.c compat/reallocarray.c compat/isblank.c
-compat/strsep.c
 )
 
 add_library(unbound ${LIBUNBOUND_SRC} ${COMMON_SRC} ${SLDNS_SRC} ${COMPAT_SRC})
