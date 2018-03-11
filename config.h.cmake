@@ -90,23 +90,23 @@
 
 /* Define to 1 if you have the declaration of `NID_X9_62_prime256v1', and to 0
    if you don't. */
-#cmakedefine HAVE_DECL_NID_X9_62_PRIME256V1
+#cmakedefine01 HAVE_DECL_NID_X9_62_PRIME256V1
 
 /* Define to 1 if you have the declaration of `reallocarray', and to 0 if you
    don't. */
-#cmakedefine HAVE_DECL_REALLOCARRAY
+#cmakedefine01 HAVE_DECL_REALLOCARRAY
 
 /* Define to 1 if you have the declaration of `sk_SSL_COMP_pop_free', and to 0
    if you don't. */
-#cmakedefine HAVE_DECL_SK_SSL_COMP_POP_FREE
+#cmakedefine01 HAVE_DECL_SK_SSL_COMP_POP_FREE
 
 /* Define to 1 if you have the declaration of
    `SSL_COMP_get_compression_methods', and to 0 if you don't. */
-#cmakedefine HAVE_DECL_SSL_COMP_GET_COMPRESSION_METHODS
+#cmakedefine01 HAVE_DECL_SSL_COMP_GET_COMPRESSION_METHODS
 
 /* Define to 1 if you have the declaration of `SSL_CTX_set_ecdh_auto', and to
    0 if you don't. */
-#cmakedefine HAVE_DECL_SSL_CTX_SET_ECDH_AUTO
+#cmakedefine01 HAVE_DECL_SSL_CTX_SET_ECDH_AUTO
 
 /* Define to 1 if you have the declaration of `strlcat', and to 0 if you
    don't. */
