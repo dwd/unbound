@@ -156,6 +156,7 @@ set (COMMON_SRC
         util/netevent.c util/net_help.c util/random.c util/rbtree.c util/regional.c
         util/rtt.c util/storage/dnstree.c util/storage/lookup3.c
         util/storage/lruhash.c util/storage/slabhash.c util/timehist.c util/tube.c
+        util/tcp_conn_limit.c util/edns.c
         util/ub_event.c util/ub_event_pluggable.c util/winsock_event.c
         validator/autotrust.c validator/val_anchor.c validator/validator.c
         validator/val_kcache.c validator/val_kentry.c validator/val_neg.c
