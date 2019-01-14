@@ -180,7 +180,7 @@ if(!${HAVE_MEMMOVE})
     set (COMPAT_SRC ${COMPAT_SRC} compat/memmove.c)
 endif()
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set (COMPAT_SRC ${COMPAT_SRC} compat/genentropy_linux.c)
+    set (COMPAT_SRC ${COMPAT_SRC} compat/getentropy_linux.c)
 endif()
 
 add_library(unbound ${LIBUNBOUND_SRC} ${COMMON_SRC} ${SLDNS_SRC} ${COMPAT_SRC})
