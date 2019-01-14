@@ -104,6 +104,8 @@ CHECK_SYMBOL_EXISTS(SSL_COMP_get_compression_methods openssl/ssl.h HAVE_DECL_SSL
 CHECK_SYMBOL_EXISTS(SSL_CTX_set_ecdh_auto openssl/ssl.h HAVE_DECL_SSL_CTX_SET_ECDH_AUTO)
 CHECK_SYMBOL_EXISTS(SHA512_Update openssl/sha.h HAVE_SHA512_UPDATE)
 
+CHECK_SYMBOL_EXISTS(memmove string.h HAVE_MEMMOVE)
+
 CHECK_SYMBOL_EXISTS(PTHREAD_PRIO_INHERIT pthread.h HAVE_PTHREAD_PRIO_INHERIT)
 CHECK_TYPE_SIZE(pthread_rwlock_t HAVE_PTHREAD_RWLOCK_T)
 CHECK_TYPE_SIZE(pthread_spinlock_t HAVE_PTHREAD_SPINLOCK_T)
@@ -169,11 +171,17 @@ set (COMMON_SRC
         )
 set (SLDNS_SRC sldns/keyraw.c sldns/sbuffer.c sldns/wire2str.c sldns/parse.c sldns/parseutil.c sldns/rrdef.c sldns/str2wire.c)
 set (COMPAT_SRC
-compat/memcmp.c compat/memmove.c compat/strlcat.c
-compat/strlcpy.c compat/getentropy_linux.c
+compat/memcmp.c compat/strlcat.c
+compat/strlcpy.c
 compat/explicit_bzero.c compat/arc4random.c compat/arc4random_uniform.c
 compat/arc4_lock.c compat/sha512.c compat/reallocarray.c compat/isblank.c
 )
+if(!${HAVE_MEMMOVE})
+    set (COMPAT_SRC ${COMPAT_SRC} compat/memmove.c)
+endif()
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+    set (COMPAT_SRC ${COMPAT_SRC} compat/getentropy_linux.c)
+endif()
 
 add_library(unbound ${LIBUNBOUND_SRC} ${COMMON_SRC} ${SLDNS_SRC} ${COMPAT_SRC})
 
