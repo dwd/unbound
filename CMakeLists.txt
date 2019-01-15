@@ -11,6 +11,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../openssl/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../libevent/include)
 include_directories(${CMAKE_BINARY_DIR}/deps/libevent/include)
 
+CMAKE_POLICY(SET CMP0075 NEW)
 
 INCLUDE (CheckIncludeFiles)
 INCLUDE (CheckSymbolExists)
