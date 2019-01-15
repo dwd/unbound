@@ -48,7 +48,9 @@
 #ifdef HAVE_SYS_SHM_H
 #include <sys/shm.h>
 #endif
+#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
+#endif
 #include <errno.h>
 #include "shm_main.h"
 #include "daemon/daemon.h"

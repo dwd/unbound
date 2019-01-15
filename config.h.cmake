@@ -484,7 +484,7 @@
 #cmakedefine HAVE_SYS_IPC_H
 
 /* Define to 1 if you have the <sys/param.h> header file. */
-#cmakedefine01 HAVE_SYS_PARAM_H
+#cmakedefine HAVE_SYS_PARAM_H
 
 /* Define to 1 if you have the <sys/resource.h> header file. */
 #cmakedefine HAVE_SYS_RESOURCE_H
@@ -506,6 +506,9 @@
 
 /* Define to 1 if you have the <sys/types.h> header file. */
 #cmakedefine HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#cmakedefine HAVE_SYS_TIME_H
 
 /* Define to 1 if you have the <sys/uio.h> header file. */
 #cmakedefine HAVE_SYS_UIO_H
@@ -797,13 +800,13 @@
 #cmakedefine const
 
 /* Define to `int' if <sys/types.h> doesn't define. */
-#cmakedefine gid_t
+#cmakedefine gid_t int
 
 /* in_addr_t */
 #cmakedefine in_addr_t
 
 /* in_port_t */
-#cmakedefine in_port_t
+#cmakedefine in_port_t unsigned short
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
@@ -812,58 +815,58 @@
 #endif
 
 /* Define to `short' if <sys/types.h> does not define. */
-#cmakedefine int16_t
+#cmakedefine int16_t short
 
 /* Define to `int' if <sys/types.h> does not define. */
-#cmakedefine int32_t
+#cmakedefine int32_t int
 
 /* Define to `long long' if <sys/types.h> does not define. */
-#cmakedefine int64_t
+#cmakedefine int64_t long long
 
 /* Define to `signed char' if <sys/types.h> does not define. */
-#cmakedefine int8_t
+#cmakedefine int8_t signed char
 
 /* Define if replacement function should be used. */
-#cmakedefine malloc
+#cmakedefine malloc @malloc@
 
 /* Define to `long int' if <sys/types.h> does not define. */
-#cmakedefine off_t
+#cmakedefine off_t long int
 
 /* Define to `int' if <sys/types.h> does not define. */
-#cmakedefine pid_t
+#cmakedefine pid_t int
 
 /* Define to 'int' if not defined */
-#cmakedefine rlim_t
+#cmakedefine rlim_t int
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
-#cmakedefine size_t
+#cmakedefine size_t unsigned int
 
 /* Define to 'int' if not defined */
-#cmakedefine socklen_t
+#cmakedefine socklen_t int
 
 /* Define to `int' if <sys/types.h> does not define. */
-#cmakedefine ssize_t
+#cmakedefine ssize_t long
 
 /* Define to 'unsigned char if not defined */
-#cmakedefine u_char
+#cmakedefine u_char unsigned char
 
 /* Define to `int' if <sys/types.h> doesn't define. */
-#cmakedefine uid_t
+#cmakedefine uid_t int
 
 /* Define to `unsigned short' if <sys/types.h> does not define. */
-#cmakedefine uint16_t
+#cmakedefine uint16_t unsigned short
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
-#cmakedefine uint32_t
+#cmakedefine uint32_t unsigned int
 
 /* Define to `unsigned long long' if <sys/types.h> does not define. */
-#cmakedefine uint64_t
+#cmakedefine uint64_t unsigned long long
 
 /* Define to `unsigned char' if <sys/types.h> does not define. */
-#cmakedefine uint8_t
+#cmakedefine uint8_t unsigned char
 
 /* Define as `fork' if `vfork' does not work. */
-#cmakedefine vfork
+#cmakedefine vfork fork
 
 #if defined(OMITTED__D_GNU_SOURCE) && !defined(_GNU_SOURCE)
 #define _GNU_SOURCE 1
