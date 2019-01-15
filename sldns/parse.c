@@ -13,7 +13,9 @@
 #include "sldns/sbuffer.h"
 
 #include <limits.h>
+#ifdef HAVE_STRINGS_H
 #include <strings.h>
+#endif
 
 sldns_lookup_table sldns_directive_types[] = {
         { LDNS_DIR_TTL, "$TTL" },
