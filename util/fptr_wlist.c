@@ -210,7 +210,9 @@ fptr_whitelist_rbtree_cmp(int (*fptr) (const void *, const void *))
 	else if(fptr == &order_lock_cmp) return 1;
 	else if(fptr == &codeline_cmp) return 1;
 	else if(fptr == &nsec3_hash_cmp) return 1;
+#ifdef USE_MINI_EVENT
 	else if(fptr == &mini_ev_cmp) return 1;
+#endif
 	else if(fptr == &anchor_cmp) return 1;
 	else if(fptr == &canonical_tree_compare) return 1;
 	else if(fptr == &context_query_cmp) return 1;
