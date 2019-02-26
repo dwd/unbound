@@ -53,7 +53,9 @@
 #ifdef HAVE_TIME_H
 #include <time.h>
 #endif
+#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
+#endif
 
 /** return code that means the function ran out of memory. negative so it does
  * not conflict with DNS rcodes. */
