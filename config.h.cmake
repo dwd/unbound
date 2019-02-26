@@ -666,7 +666,7 @@
 #cmakedefine RETSIGTYPE
 
 /* if REUSEPORT is enabled by default */
-#undef REUSEPORT_DEFAULT @REUSEPORT_DEFAULT@
+#cmakedefine REUSEPORT_DEFAULT @REUSEPORT_DEFAULT@
 
 /* default rootkey location */
 #cmakedefine ROOT_ANCHOR_FILE
