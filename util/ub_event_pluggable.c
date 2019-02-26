@@ -42,7 +42,9 @@
  * functions.
  */
 #include "config.h"
+#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
+#endif
 #include "util/ub_event.h"
 #include "libunbound/unbound-event.h"
 #include "util/netevent.h"

@@ -41,7 +41,9 @@
  * the libevent compatibility layer functions.
  */
 #include "config.h"
+#ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
+#endif
 #include "util/ub_event.h"
 #include "util/log.h"
 #include "util/netevent.h"
@@ -441,9 +443,20 @@ void ub_comm_base_now(struct comm_base* cb)
 	time_t *tt;
 	struct timeval *tv;
 	comm_base_timept(cb, &tt, &tv);
+#ifdef UB_ON_WINDOWS
+	FILETIME file_time;
+	SYSTEMTIME sys_time;
+	GetSystemTime(&sys_time);
+	SystemTimeToFileTime(&sys_time, &file_time);
+	uint64_t time = (file_time.dwHighDateTime << 32) + file_time.dwLowDateTime;
+	static const uint64_t EPOCH = 116444736000000000ULL;
+	tv->tv_sec = (long)((time - EPOCH) / 1000000L);
+	tv->tv_usec = sys_time.wMilliseconds * 1000L;
+#else
 	if(gettimeofday(tv, NULL) < 0) {
 		log_err("gettimeofday: %s", strerror(errno));
 	}
+#endif
 	*tt = tv->tv_sec;
 #endif /* USE_MINI_EVENT */
 }
