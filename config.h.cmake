@@ -1,6 +1,12 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 /* CMake-erized */
 
+/* apply the noreturn attribute to a function that exits the program */
+#undef ATTR_NORETURN
+
+/* apply the weak attribute to a symbol */
+#undef ATTR_WEAK
+
 /* Directory to chroot to */
 #cmakedefine CHROOT_DIR
 
@@ -51,12 +57,6 @@
 
 /* Whether the C compiler accepts the "weak" attribute */
 #cmakedefine HAVE_ATTR_WEAK
-
-/* apply the noreturn attribute to a function that exits the program */
-#undef ATTR_NORETURN
-
-/* apply the weak attribute to a symbol */
-#undef ATTR_WEAK
 
 /* Define to 1 if you have the `chown' function. */
 #cmakedefine HAVE_CHOWN
@@ -168,6 +168,9 @@
 /* Define to 1 if you have the <event.h> header file. */
 #cmakedefine HAVE_EVENT_H
 
+/* Define to 1 if you have the `EVP_aes_256_cbc' function. */
+#cmakedefine HAVE_EVP_AES_256_CBC
+
 /* Define to 1 if you have the `EVP_cleanup' function. */
 #cmakedefine HAVE_EVP_CLEANUP
 
@@ -176,6 +179,9 @@
 
 /* Define to 1 if you have the `EVP_dss1' function. */
 #cmakedefine HAVE_EVP_DSS1
+
+/* Define to 1 if you have the `EVP_EncryptInit_ex' function. */
+#undef HAVE_EVP_ENCRYPTINIT_EX
 
 /* Define to 1 if you have the `EVP_MD_CTX_new' function. */
 #cmakedefine HAVE_EVP_MD_CTX_NEW
@@ -197,6 +203,9 @@
 
 /* Define to 1 if you have the <expat.h> header file. */
 #cmakedefine HAVE_EXPAT_H
+
+/* Define to 1 if you have the `explicit_bzero' function. */
+#undef HAVE_EXPLICIT_BZERO
 
 /* Define to 1 if you have the `fcntl' function. */
 #cmakedefine HAVE_FCNTL
@@ -242,6 +251,9 @@
 
 /* Define to 1 if you have the <grp.h> header file. */
 #cmakedefine HAVE_GRP_H
+
+/* Define to 1 if you have the `HMAC_Init_ex' function. */
+#undef HAVE_HMAC_INIT_EX
 
 /* If you have HMAC_Update */
 #cmakedefine HAVE_HMAC_UPDATE
@@ -432,8 +444,14 @@
 /* Define if you have the SSL libraries installed. */
 #cmakedefine HAVE_SSL
 
+/* Define to 1 if you have the `SSL_CTX_set_ciphersuites' function. */
+#undef HAVE_SSL_CTX_SET_CIPHERSUITES
+
 /* Define to 1 if you have the `SSL_CTX_set_security_level' function. */
 #cmakedefine HAVE_SSL_CTX_SET_SECURITY_LEVEL
+
+/* Define to 1 if you have the `SSL_CTX_set_tlsext_ticket_key_cb' function. */
+#undef HAVE_SSL_CTX_SET_TLSEXT_TICKET_KEY_CB
 
 /* Define to 1 if you have the `SSL_get0_peername' function. */
 #cmakedefine HAVE_SSL_GET0_PEERNAME
@@ -567,6 +585,9 @@
 /* Define to 1 if you have the <ws2tcpip.h> header file. */
 #cmakedefine HAVE_WS2TCPIP_H
 
+/* Define to 1 if you have the `X509_VERIFY_PARAM_set1_host' function. */
+#undef HAVE_X509_VERIFY_PARAM_SET1_HOST
+
 /* Define to 1 if you have the `_beginthreadex' function. */
 #cmakedefine HAVE__BEGINTHREADEX
 
@@ -643,6 +664,9 @@
 
 /* Define as the return type of signal handlers (`int' or `void'). */
 #cmakedefine RETSIGTYPE
+
+/* if REUSEPORT is enabled by default */
+#undef REUSEPORT_DEFAULT @REUSEPORT_DEFAULT@
 
 /* default rootkey location */
 #cmakedefine ROOT_ANCHOR_FILE
@@ -1173,7 +1197,6 @@ void *reallocarray(void *ptr, size_t nmemb, size_t size);
 #  endif
 #endif /* HAVE_LIBRESSL */
 #ifndef HAVE_ARC4RANDOM
-void explicit_bzero(void* buf, size_t len);
 int getentropy(void* buf, size_t len);
 uint32_t arc4random(void);
 void arc4random_buf(void* buf, size_t n);
