@@ -43,11 +43,20 @@
 /* Whether the C compiler accepts the "format" attribute */
 #cmakedefine HAVE_ATTR_FORMAT
 
+/* Whether the C compiler accepts the "noreturn" attribute */
+#cmakedefine HAVE_ATTR_NORETURN
+
 /* Whether the C compiler accepts the "unused" attribute */
 #cmakedefine HAVE_ATTR_UNUSED
 
 /* Whether the C compiler accepts the "weak" attribute */
 #cmakedefine HAVE_ATTR_WEAK
+
+/* apply the noreturn attribute to a function that exits the program */
+#undef ATTR_NORETURN
+
+/* apply the weak attribute to a symbol */
+#undef ATTR_WEAK
 
 /* Define to 1 if you have the `chown' function. */
 #cmakedefine HAVE_CHOWN
@@ -983,6 +992,12 @@
 #define AF_LOCAL AF_UNIX
 #endif
 
+
+#ifdef HAVE_ATTR_NORETURN
+#  define ATTR_NORETURN __attribute__ ((noreturn))
+#else
+#  define ATTR_NORETURN /* empty */
+#endif
 
  
 #ifdef HAVE_ATTR_FORMAT
