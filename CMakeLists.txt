@@ -106,6 +106,7 @@ CHECK_SYMBOL_EXISTS(localtime_r time.h HAVE_LOCALTIME_R)
 CHECK_SYMBOL_EXISTS(gmtime_r time.h HAVE_GMTIME_R)
 CHECK_SYMBOL_EXISTS(ctime_r time.h HAVE_CTIME_R)
 CHECK_SYMBOL_EXISTS(memmove string.h HAVE_MEMMOVE)
+CHECK_SYMBOL_EXISTS(memcmp string.h HAVE_MEMCMP)
 CHECK_SYMBOL_EXISTS(snprintf stdio.h HAVE_SNPRINTF)
 CHECK_SYMBOL_EXISTS(strlcpy string.h HAVE_STRLCPY)
 CHECK_SYMBOL_EXISTS(strlcat string.h HAVE_STRLCAT)
@@ -216,7 +217,7 @@ set (COMMON_SRC
         )
 set (SLDNS_SRC sldns/keyraw.c sldns/sbuffer.c sldns/wire2str.c sldns/parse.c sldns/parseutil.c sldns/rrdef.c sldns/str2wire.c)
 set (COMPAT_SRC
-compat/memcmp.c compat/strlcat.c
+compat/strlcat.c
 compat/strlcpy.c
 compat/explicit_bzero.c compat/arc4random.c compat/arc4random_uniform.c
 compat/arc4_lock.c compat/reallocarray.c compat/isblank.c
@@ -224,6 +225,9 @@ compat/arc4_lock.c compat/reallocarray.c compat/isblank.c
 message("Checking ${HAVE_STRSEP} in a second")
 if(NOT "${HAVE_MEMMOVE}")
     set (COMPAT_SRC ${COMPAT_SRC} compat/memmove.c)
+endif()
+if(NOT "${HAVE_MEMCMP}")
+    set (COMPAT_SRC ${COMPAT_SRC} compat/memcmp.c)
 endif()
 if (NOT "${HAVE_STRSEP}")
     message("Including own strsep")
